@@ -1,7 +1,7 @@
 # 📊 Employee Training Effectiveness Analyzer
 
-A **Streamlit Dashboard** for visualization of Employees Training Effectiveness, providing trends and predicting Performance Improvement and Promotion Eligibility 
-using Machine Learning Model(MLP Regressor and Random Forest Classifier). This project provides ingights on the effectiveness of Employee training for more effective data-driven decision making.
+A **Streamlit Dashboard** for visualization of Employees Training Effectiveness, providing trends and predicting Performance Improvement and Promotion Eligibility using Machine Learning Model(MLP Regressor and Random Forest Classifier). 
+This project provides insights on the effectiveness of Employee Training on Performance to Promotions leading to more effective data-driven decisions.
 
 ---
 ---
@@ -25,7 +25,6 @@ As  part of **HCL Tech Internship**, this dashboard was prepared. It allows user
 - 📈 Interactive charts using **Plotly** and **Seaborn**
 - 🤖 Prediction via **MLP Regressor and Random Forest Classifier**
 - 🎛️ Filters by Education level, Work Experience, Training Program and more..
-- 📥 CSV download option for filtered datasets
 
 
 ## 🔍 Machine Learning Model
