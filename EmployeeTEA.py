@@ -248,7 +248,7 @@ elif selection == "🔮 Predict New Data":
     # --- Loading Model---
     @st.cache_resource
     def load_model():
-        model_ = joblib.load(model_path)
+        model_ = joblib.load("mlmodel_mlp_rfc.pkl")
         mlp = model_["regressor"]
         rfc = model_["clf_pipeline"]
         return model_, mlp, rfc
