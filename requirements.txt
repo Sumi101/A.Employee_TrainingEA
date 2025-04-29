@@ -1,0 +1,12 @@
+streamlit
+numpy
+pandas
+sckit-learn
+matplotlib
+seaborn
+plotly.express
+MinMaxScaler
+BaseEstimator
+TransformerMixin
+joblib
+sqlite3
