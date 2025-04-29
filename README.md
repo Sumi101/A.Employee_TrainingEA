@@ -1,2 +1,45 @@
-#Employee Training Effectiveness Analyzer
-This repository contains files used to build Webapp using Streamlit during internship period at HCLTech
+# 📊 Employee Training Effectiveness Analyzer
+
+A **Streamlit Dashboard** for visualization of Employees Training Effectiveness, providing trends and predicting Performance Improvement and Promotion Eligibility 
+using Machine Learning Model(MLP Regressor and Random Forest Classifier). This project provides ingights on the effectiveness of Employee training for more effective data-driven decision making.
+
+---
+---
+
+## 📌 Project Summary
+
+As  part of **HCL Tech Internship**, this dashboard was prepared. It allows users to:
+
+- Visualize Employee Training data through Interactive charts
+- **Prediction** as per available features
+
+
+## 🚀 Live App
+
+👉 [Launch the Employee Training Effectiveness Analyzer Webapp](https://)
+
+
+## 💡 Features
+
+- ✅ **Streamlit-powered** user interface
+- 📈 Interactive charts using **Plotly** and **Seaborn**
+- 🤖 Prediction via **MLP Regressor and Random Forest Classifier**
+- 🎛️ Filters by Education level, Work Experience, Training Program and more..
+- 📥 CSV download option for filtered datasets
+
+
+## 🔍 Machine Learning Model
+
+- Trained using the cleaned dataset ["EXCSV_Cleaned_Data_Wid_Formulas"]
+- Included Features:
+  - Education
+  - Work Experience
+  - Training Program
+  - Training Type
+  - Pre-Training and Post-Training Scores
+- Model Used: `MLP Regressor` & `Random Forest Classifier`
+- Model (file): `mlmodel_mlp_rfc.pkl`
+
+🔍[More Elements added]...
+---
+---
