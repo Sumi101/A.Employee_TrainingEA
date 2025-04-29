@@ -263,6 +263,7 @@ elif selection == "🔮 Predict New Data":
         prediction = (f"The Performance Score is:{performance[0]:.2f}%")
         prediction2= f"The Promotion Eligibility: {rfc.predict(data1)}"
         promotion_text = "Yes" if prediction2[0] == 1 else "No"
-        st.success(f"🌟 Predicted Outcome: {prediction} {promotion_text}(1=Yes, 0=No)")")
+        st.success(f"🌟 Predicted Outcome: {prediction}")
+        st.success(f"✨{promotion_text} (1=Yes, 0=No)")
 
 st.write("Created By: Sumina K. Dangol |Powered By Streamlit")
