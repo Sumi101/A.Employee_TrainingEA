@@ -248,7 +248,6 @@ elif selection == "🔮 Predict New Data":
     # --- Loading Model---
     @st.cache_resource
     def load_model():
-        model_path = r"C:\Users\USER\Documents\StreamIsLit_\mlmodel_mlp_rfc.pkl"
         model_ = joblib.load(model_path)
         mlp = model_["regressor"]
         rfc = model_["clf_pipeline"]
@@ -264,4 +263,4 @@ elif selection == "🔮 Predict New Data":
         prediction2= f"The Promotion Eligibility: {rfc.predict(input_data)}"
         st.success(f"🌟 Predicted Outcome: {prediction} {prediction2}")
 
-st.write("Created By: Sumina K. Dangol")
+st.write("Created By: Sumina K. Dangol |Powered By Streamlit")
