@@ -1,11 +1,7 @@
 streamlit
 numpy
 pandas
-joblib
-sqlite3
+scikit-learn
 matplotlib
 seaborn
 plotly
-scikit
-BaseEstimator
-TransformerMixin
