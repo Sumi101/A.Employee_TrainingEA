@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.base import BaseEstimator, TransformerMixin
 
 # ---Setting Streamlit Page Configuration---
@@ -254,10 +255,14 @@ elif selection == "🔮 Predict New Data":
     mlp = model_["regressor"]
     rfc = model_["clf_pipeline"]
 
+    mmc = MinMaxScaler()
+    data1= mmc.fit_transform(input_data)
     if st.button("Predict"):
         #Make prediction
-        prediction = f"The Performance Score is: {mlp.predict(input_data)}"
-        prediction2= f"The Promotion Eligibility: {rfc.predict(input_data)}"
-        st.success(f"🌟 Predicted Outcome: {prediction} {prediction2}")
+        performance_ = mlp.predict(data1)
+        prediction = (f"The Performance Score is:{performance[0]:.2f}%")
+        prediction2= f"The Promotion Eligibility: {rfc.predict(data1)}"
+        promotion_text = "Yes" if prediction2[0] == 1 else "No"
+        st.success(f"🌟 Predicted Outcome: {prediction} {promotion_text}(1=Yes, 0=No)")")
 
 st.write("Created By: Sumina K. Dangol |Powered By Streamlit")
