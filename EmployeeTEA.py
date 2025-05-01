@@ -96,10 +96,10 @@ elif selection == "📄 Dataset Overview":
 
     #Scatter Plot
     st.subheader("Relationship By Columns")
-    feature_to_plot = st.selectbox("Select a Column", df.columns)
-    plot_feature= st.selectbox("Select a Column", df.columns)
+    x_feature = st.selectbox("Select a Column", df.columns, key="x_feature_selectbox)
+    y_feature = st.selectbox("Select a Column", df.columns, key="y_feature_selectbox")
     color_col= st.selectbox("Select a Column for Color", df.columns)
-    fig3 = px.scatter(df, x=feature_to_plot, y=plot_feature, color=color_col)
+    fig3 = px.scatter(df, x=x_feature, y=y_feature, color=color_col)
     st.plotly_chart(fig3)
 
     st.subheader("Correlation Heatmap")
