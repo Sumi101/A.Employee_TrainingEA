@@ -29,16 +29,17 @@ As  part of **HCL Tech Internship**, this dashboard was prepared. It allows user
 
 ## 🔍 Machine Learning Model
 
-- Trained using the cleaned dataset ["EXCSV_Cleaned_Data_Wid_Formulas"]
+- Trained using the cleaned dataset of ["EXCSV_Cleaned_Data_Wid_Formulas"] placed in the database [ETEA.db] using SQLite
 - Included Features:
   - Education
   - Work Experience
   - Training Program
   - Training Type
-  - Pre-Training and Post-Training Scores
+  - Pre-Training and Post-Training Scores and many more..
 - Model Used: `MLP Regressor` & `Random Forest Classifier`
 - Model (file): `mlmodel_mlp_rfc.pkl`
 
 🔍[More Elements added]...
+⚠️ Note: The current model is a prototype and does not yet deliver production-level accuracy.
 ---
 ---
