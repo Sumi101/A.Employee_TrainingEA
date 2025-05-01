@@ -36,7 +36,7 @@ st.sidebar.markdown("""
         Use this sidebar to navigate! """)
 
 # --- KPIs ---
-st.markdown("##📌")
+st.markdown("## 📌")
 col1, = st.columns(1)
 total_hours = df["Trained Hours"].sum()
 col1.metric("Total Trained Hours", f"{total_hours:,.0f} hours")
