@@ -240,7 +240,7 @@ elif selection == "🔮 Predict New Data":
         performance_imp = mlp.predict(input_data)[0]
         performance_imp = max(min(performance_imp, 1), -1)
         performance_per = performance_imp * 100  
-        performance_ = f"{performance_per:.2f}%"
+        performance_ = f"{performance_imp:.2f}%"
         st.success(f"🌟Performance Improvement: {performance_}")
         
         promotion_ = rfc.predict(input_data)[0]
