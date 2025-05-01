@@ -168,7 +168,7 @@ elif selection == "🔮 Predict New Data":
         work_experience = st.slider("Work Experience", 18, 60, 30)
 
     with col3:
-        training_program = st.selectbox("Training program", ['Compliance','Customer Service',,'Leadership',,'Soft Skills','Technical Skills'])
+        training_program = st.selectbox("Training program", ['Compliance','Customer Service','Leadership','Soft Skills','Technical Skills'])
         
     with col4:
         training_type = st.selectbox("Training Type",['Online', 'Hybrid', 'In-Person'])
