@@ -96,7 +96,7 @@ elif selection == "📄 Dataset Overview":
 
     #Scatter Plot
     st.subheader("Relationship By Columns")
-    x_feature = st.selectbox("Select a Column", df.columns, key="x_feature_selectbox)
+    x_feature = st.selectbox("Select a Column", df.columns, key="x_feature_selectbox")
     y_feature = st.selectbox("Select a Column", df.columns, key="y_feature_selectbox")
     color_col= st.selectbox("Select a Column for Color", df.columns)
     fig3 = px.scatter(df, x=x_feature, y=y_feature, color=color_col)
