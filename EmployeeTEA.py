@@ -1,4 +1,4 @@
-csimport streamlit as st
+import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
@@ -31,7 +31,7 @@ st.sidebar.markdown("""
         Here you can:
         - Explore the Cleaned Dataset
         - See Powerful Visual Analysis
-        - Make Predictions Using Trained Machine Learning Model
+        - Make Predictions
         
         Use this sidebar to navigate! """)
 
@@ -237,8 +237,11 @@ elif selection == "🔮 Predict New Data":
 
     if st.button("🔮Predict"):
         #Make prediction
-        performance_imp = mlp.predict(input_data)
+        performance_imp = mlp.predict(input_data)[0]
+        performance_per = performance_imp * 100  
+        performance_ = f"{performance_per:.2f}%"
+        st.success(f"🌟Performance Improvement: {performance_}")
+        
         promotion_ = rfc.predict(input_data)[0]
         yesno= "Yes" if promotion_ == 1 else "No"
-        st.success(f"🌟Performance Improvement: {performance_imp}")
         st.success(f"✨Promotion Eligibility: {yesno}")
