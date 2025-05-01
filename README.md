@@ -40,7 +40,7 @@ As  part of **HCL Tech Internship**, this dashboard was prepared. It allows user
 - Model (file): `mlmodel_mlp_rfc.pkl`
 
 🔍[More Elements added]...
-⚠️ Note: The current model is a prototype and does not yet deliver production-level accuracy.
+⚠️ [Note:] The current model is a prototype and does not yet deliver production-level accuracy.
   - The model is functional but not yet highly accurate.
   - Predictions may be inconsistent or imprecise, especially on unseen or edge-case data.
 ---
