@@ -29,7 +29,7 @@ As  part of **HCL Tech Internship**, this dashboard was prepared. It allows user
 
 ## 🔍 Machine Learning Model
 
-- Trained using the cleaned dataset of ["EXCSV_Cleaned_Data_Wid_Formulas"] placed in the database [ETEA.db] using SQLite
+- Trained using the cleaned dataset of ["EXCSV_Cleaned_Data_Wid_Formulas"](https://github.com/Sumi101/A.Employee_TEA/blob/main/EXCSV_Cleaned_Data_Wid_Formulas.csv) placed in the database [ETEA.db](https://github.com/Sumi101/A.Employee_TEA/blob/main/ETEA.db) using SQLite
 - Included Features:
   - Education
   - Work Experience
@@ -41,5 +41,7 @@ As  part of **HCL Tech Internship**, this dashboard was prepared. It allows user
 
 🔍[More Elements added]...
 ⚠️ Note: The current model is a prototype and does not yet deliver production-level accuracy.
+  - The model is functional but not yet highly accurate.
+  - Predictions may be inconsistent or imprecise, especially on unseen or edge-case data.
 ---
 ---
