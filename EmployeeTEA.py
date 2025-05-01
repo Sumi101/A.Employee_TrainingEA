@@ -98,7 +98,7 @@ elif selection == "📄 Dataset Overview":
     st.subheader("Relationship By Columns")
     x_feature = st.selectbox("Select a Column", df.columns, key="x_feature_selectbox")
     y_feature = st.selectbox("Select a Column", df.columns, key="y_feature_selectbox")
-    color_col= st.selectbox("Select a Column for Color", df.columns)
+    color_col= st.selectbox("Color by", df.columns)
     fig3 = px.scatter(df, x=x_feature, y=y_feature, color=color_col)
     st.plotly_chart(fig3)
 
@@ -238,10 +238,7 @@ elif selection == "🔮 Predict New Data":
     if st.button("🔮Predict"):
         #Make prediction
         performance_imp = mlp.predict(input_data)[0]
-        performance_imp = max(min(performance_imp, 1), -1)
-        performance_per = performance_imp * 100  
-        performance_ = f"{performance_imp:.2f}%"
-        st.success(f"🌟Performance Improvement: {performance_}")
+        st.success(f"🌟Performance Score: {performance_imp:.2f}")
         
         promotion_ = rfc.predict(input_data)[0]
         yesno= "Yes" if promotion_ == 1 else "No"
