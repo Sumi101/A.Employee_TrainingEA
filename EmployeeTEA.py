@@ -8,15 +8,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
-from sklearn.preprocessing import MinMaxScaler
 from sklearn.base import BaseEstimator, TransformerMixin
 
 # ---Setting Streamlit Page Configuration---
 st.set_page_config(
-    page_title="Employee Training Effectiveness Analysis Dashboard",
-    page_icon="📊",
-    layout="wide"
-)
+    page_title="Employee Training Effectiveness Analysis Dashboard",page_icon="📊",layout="wide")
 
 # --- Loading Dataset by Database---
 @st.cache_data
@@ -29,8 +25,7 @@ def load_data():
 df=load_data()
 
 # Main content
-st.header("Interactive Dashboard For Employee Training Effectiveness Analysis")
-
+st.header("Employee Training Effectiveness Analyzer")
 st.sidebar.markdown(""" 
         Welcome to the Employee Training Effectiveness Analysis Dashboard!  
         Here you can:
@@ -41,16 +36,16 @@ st.sidebar.markdown("""
         Use this sidebar to navigate! """)
 
 # --- KPIs ---
-st.markdown("### 📌 Key Metrics")
+st.markdown("##📌")
 col1, = st.columns(1)
 total_hours = df["Trained Hours"].sum()
-col1.metric("Total Training Hours", f"{total_hours:,.0f} hours")
+col1.metric("Total Trained Hours", f"{total_hours:,.0f} hours")
 
-# Sidebar Navigation
+# --- Sidebar Navigation---
 st.sidebar.title("Navigation")
 selection = st.sidebar.radio("Go to:", ["🏠Dashboard Home", "📄 Dataset Overview", "📈 Analysis", "🔮 Predict New Data"])
 
-# Pages
+# --- Pages ---
 if selection == "🏠Dashboard Home":
     department_types = ["HR", "Productions", "Sales", "Marketing", "Finance", "IT", "Operations"]
     df_filtered = df[df['Department'].isin(department_types)]
@@ -69,13 +64,11 @@ if selection == "🏠Dashboard Home":
     fig22.update_layout(xaxis_title='Age',yaxis_title='Work Experience',plot_bgcolor='white',margin=dict(l=40, r=20, t=40, b=40),showlegend=False)
     st.plotly_chart(fig22)
 
-    #Employee Count in Training Program 
     training_program_counts = df['Training Program'].value_counts()
     programs = training_program_counts.index.tolist()
     counts = training_program_counts.values.tolist()
     fig3 = go.Figure()
     fig3.add_trace(go.Scatter(x=programs,y=counts,mode='lines+markers+text',text=counts,textposition='top center',line=dict(color='royalblue', width=3),marker=dict(size=8)))
-
     fig3.update_layout(title='Training Program Trend',xaxis_title='Types of Program',yaxis_title='Trained Employees in Quantity',xaxis_tickangle=-45,plot_bgcolor='white',
         margin=dict(l=40, r=20, t=40, b=40),showlegend=False)
     st.plotly_chart(fig3)
@@ -87,7 +80,6 @@ if selection == "🏠Dashboard Home":
     # Line Chart Alternative
     fig4_line = go.Figure()
     fig4_line.add_trace(go.Scatter(x=programs,y=hours,mode='lines+markers+text',text=hours,textposition='top center',line=dict(color='green', width=3),marker=dict(size=8)))
-
     fig4_line.update_layout(title='Trained Hours Per Training Program (Line Chart)',xaxis_title='Training Program',yaxis_title='Trained Hours',xaxis_tickangle=-45,
         plot_bgcolor='white',margin=dict(l=40, r=20, t=40, b=40),showlegend=False)
     st.plotly_chart(fig4_line)
@@ -99,13 +91,15 @@ elif selection == "📄 Dataset Overview":
     st.write(df.describe())
     # Histogram
     st.subheader("Distribution of Post Training Score")
-    fig2 = px.histogram(df, x="Post Training Score")  # Replace with your target column
+    fig2 = px.histogram(df, x="Post Training Score") 
     st.plotly_chart(fig2)
 
     #Scatter Plot
-    st.subheader("Work Relationship")
-    feature_to_plot = st.selectbox("Select a feature to plot against target", df.columns)
-    fig3 = px.scatter(df, x=feature_to_plot, y="Work Experience", color="Work Experience")
+    st.subheader("Relationship By Columns")
+    feature_to_plot = st.selectbox("Select a Column", df.columns)
+    plot_feature= st.selectbox("Select a Column", df.columns)
+    color_col= st.selectbox("Select a Column for Color", df.columns)
+    fig3 = px.scatter(df, x=feature_to_plot, y=plot_feature, color=color_col)
     st.plotly_chart(fig3)
 
     st.subheader("Correlation Heatmap")
@@ -118,11 +112,9 @@ elif selection == "📄 Dataset Overview":
     st.pyplot(fig)
 
 elif selection == "📈 Analysis":
-    st.markdown("""
-        Welcome to Employee Training Analysis Dashboard!""")
+    st.markdown("Lets Analyze Our Dataset!")
     
     col1, col2 = st.columns(2)
-    
     with col1:
         st.subheader("Data Preview")
         st.dataframe(df.head())
@@ -131,12 +123,8 @@ elif selection == "📈 Analysis":
         st.write(df.describe())
     
     with col2:
-        st.subheader("Data Visualization")
-        
-        plot_type = st.selectbox(
-            "Plot Type",
-            ["Histogram", "Scatter Plot", "Box Plot"]
-        )
+        st.subheader("Data Visualization") 
+        plot_type = st.selectbox("Plot Type",["Histogram", "Scatter Plot", "Box Plot"])
         
         if plot_type == "Histogram":
             column = st.selectbox("Select column", df.columns)
@@ -147,15 +135,13 @@ elif selection == "📈 Analysis":
         elif plot_type == "Scatter Plot":
             x_axis = st.selectbox("X Axis", df.columns)
             y_axis = st.selectbox("Y Axis", df.columns)
-            color_by = st.selectbox("Color By", [None] + list(df.select_dtypes(include=['object', 'category']).columns))
-            
+            color_by = st.selectbox("Color By", [None] + list(df.select_dtypes(include=['object', 'category']).columns))     
             fig = px.scatter(df, x=x_axis, y=y_axis, color=color_by, hover_data=df.columns)
             st.plotly_chart(fig, use_container_width=True)
             
         elif plot_type == "Box Plot":
             column = st.selectbox("Select column", df.columns)
-            group_by = st.selectbox("Group By", [None] + list(df.select_dtypes(include=['object', 'category']).columns))
-            
+            group_by = st.selectbox("Group By", [None] + list(df.select_dtypes(include=['object', 'category']).columns))  
             fig, ax = plt.subplots()
             if group_by:
                 sns.boxplot(data=df, x=group_by, y=column, ax=ax)
@@ -165,30 +151,24 @@ elif selection == "📈 Analysis":
 
         else: # Correlation matrix
             numeric_df = df.select_dtypes(include=['float64', 'int64'])
-            # st.corr = numeric_df.corr()
             corr_matrix = numeric_df.corr()
             # Plot heatmap
             fig, ax = plt.subplots(figsize=(8,4))
-            # sns.heatmap(st.corr, annot=True, cmap = plt.cm.Blues, fmt=".2f", color="")
             sns.heatmap(corr_matrix, annot=True, cmap=plt.cm.Blues, fmt=".2f")
             st.pyplot(fig)
 
-
 elif selection == "🔮 Predict New Data":
-
     st.title("Predict New Data")
     st.subheader("Input Features")
-
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
     with col1:
-        education = st.selectbox("Education",['PhD', "Bachelor's", "Master's", 'High School'])
+        education = st.selectbox("Education",["High School", "Bachelor's", "Master's", "PhD" ])
 
     with col2:
         work_experience = st.slider("Work Experience", 18, 60, 30)
 
     with col3:
-        training_program = st.selectbox("Training program", ['Technical Skills', 'Customer Service', 'Soft Skills',
-       'Compliance', 'Leadership'])
+        training_program = st.selectbox("Training program", ['Compliance','Customer Service',,'Leadership',,'Soft Skills','Technical Skills'])
         
     with col4:
         training_type = st.selectbox("Training Type",['Online', 'Hybrid', 'In-Person'])
@@ -255,11 +235,10 @@ elif selection == "🔮 Predict New Data":
     mlp = model_["regressor"]
     rfc = model_["clf_pipeline"]
 
-    if st.button("Predict"):
+    if st.button("🔮Predict"):
         #Make prediction
-        prediction = f"The Performance Score is:{mlp.predict(input_data)}"
-        prediction2= f"The Promotion Eligibility: {rfc.predict(input_data)}"
-        st.success(f"🌟Predicted Outcome: {prediction}")
-        st.success(f"✨Another Predicted Outcome: {prediction2} (1=Yes, 0=No)")
-
-st.write("Created By: Sumina K. Dangol |Powered By Streamlit")
+        performance_imp = mlp.predict(input_data)
+        promotion_ = rfc.predict(input_data)[0]
+        yesno= "Yes" if promotion_ == 1 else "No"
+        st.success(f"🌟Performance Improvement: {performance_imp}")
+        st.success(f"✨Promotion Eligibility: {yesno}")
