@@ -35,14 +35,15 @@ As  part of **HCL Tech Internship**, this dashboard was prepared. It allows user
   - Work Experience
   - Training Program
   - Training Type
-  - Pre-Training and Post-Training Scores and many more..
+  - Pre-Training and Post-Training Scores
+  - Peer Learning
+  - Feedback Score
 - Model Used: `MLP Regressor` & `Random Forest Classifier`
 - Model (file): `mlmodel_mlp_rfc.pkl`
 
 ### 🔍 More Elements added...
 ### ⚠️ Note: 
-- The current model is a prototype and does not yet deliver production-level accuracy.
-  - The model is functional but not yet highly accurate.
+- The current model is a prototype and does not yet deliver prediction for production-level accuracy.
   - Predictions may be inconsistent or imprecise, especially on unseen or edge-case data.
 ---
 ---
