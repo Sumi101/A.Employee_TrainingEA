@@ -47,3 +47,6 @@ As  part of **HCL Tech Internship**, this dashboard was prepared. It allows user
   - Predictions may be inconsistent or imprecise, especially on unseen or edge-case data.
 ---
 ---
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
